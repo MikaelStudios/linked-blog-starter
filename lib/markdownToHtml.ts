@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
-import rehypeSanitize, {defaultSchema} from 'rehype-sanitize'
+import rehypeSanitize, {defaultSchema, Options} from 'rehype-sanitize'
 import rehypeRewrite from 'rehype-rewrite';
 import rehypeStringify from 'rehype-stringify'
 import { getLinksMapping, getPostBySlug, getSlugFromHref, updateMarkdownLinks } from './api'
@@ -27,7 +27,7 @@ export async function markdownToHtml(markdown: string, currSlug: string) {
     linkNodeMapping[l] = node
   }
 
-  const mathSanitizeSchema = {
+  const mathSanitizeSchema: Options = {
     ...defaultSchema,
     attributes: {
       ...defaultSchema.attributes,
