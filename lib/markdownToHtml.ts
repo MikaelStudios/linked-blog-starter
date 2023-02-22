@@ -2,7 +2,9 @@ import {unified} from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
-import rehypeSanitize from 'rehype-sanitize'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import rehypeSanitize, {defaultSchema} from 'rehype-sanitize'
 import rehypeRewrite from 'rehype-rewrite';
 import rehypeStringify from 'rehype-stringify'
 import { getLinksMapping, getPostBySlug, getSlugFromHref, updateMarkdownLinks } from './api'
@@ -25,11 +27,28 @@ export async function markdownToHtml(markdown: string, currSlug: string) {
     linkNodeMapping[l] = node
   }
 
+  const mathSanitizeSchema = {
+    ...defaultSchema,
+    attributes: {
+      ...defaultSchema.attributes,
+      div: [
+        ...defaultSchema.attributes.div,
+        ['className', 'math', 'math-display']
+      ],
+      span: [
+        ['className', 'math', 'math-inline']
+      ]
+    }
+  }
+  
+  
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)
+    .use(remarkMath)
     .use(remarkRehype)
-    .use(rehypeSanitize)
+    .use(rehypeSanitize, mathSanitizeSchema)
+    .use(rehypeKatex)
     .use(rehypeRewrite, {
       selector: 'a',
       rewrite: async (node) => rewriteLinkNodes(node, linkNodeMapping, currSlug)
