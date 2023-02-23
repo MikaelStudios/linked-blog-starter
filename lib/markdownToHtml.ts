@@ -47,12 +47,12 @@ export async function markdownToHtml(markdown: string, currSlug: string) {
     .use(remarkGfm)
     .use(remarkMath)
     .use(remarkRehype)
-    .use(rehypeKatex, { strict: false })
     .use(rehypeSanitize, mathSanitizeSchema)
     .use(rehypeRewrite, {
       selector: 'a',
       rewrite: async (node) => rewriteLinkNodes(node, linkNodeMapping, currSlug)
     })
+    .use(rehypeKatex, { strict: false })
     .use(rehypeStringify)
     .process(markdown)
   let htmlStr = file.toString()
