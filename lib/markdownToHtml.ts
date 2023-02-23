@@ -52,8 +52,8 @@ export async function markdownToHtml(markdown: string, currSlug: string) {
       selector: 'a',
       rewrite: async (node) => rewriteLinkNodes(node, linkNodeMapping, currSlug)
     })
-    .use(rehypeKatex, { strict: false })
     .use(rehypeStringify)
+    .use(rehypeKatex, { strict: false })
     .process(markdown)
   let htmlStr = file.toString()
   return htmlStr;
