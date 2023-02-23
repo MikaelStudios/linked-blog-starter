@@ -48,7 +48,7 @@ export async function markdownToHtml(markdown: string, currSlug: string) {
     .use(remarkMath)
     .use(remarkRehype)
     .use(rehypeSanitize, mathSanitizeSchema)
-    .use(rehypeKatex)
+    .use(rehypeKatex,{strict:false})
     .use(rehypeRewrite, {
       selector: 'a',
       rewrite: async (node) => rewriteLinkNodes(node, linkNodeMapping, currSlug)
