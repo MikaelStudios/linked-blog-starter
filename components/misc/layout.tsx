@@ -10,7 +10,7 @@ const Layout = ({ children }: Props) => {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <Header />
-      <main className="grow">
+      <main className="grow dark:bg-gray-800">
         {children}
       </main>
       <Footer />

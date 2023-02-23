@@ -25,14 +25,14 @@ function PostSingle({
 }: Props) {
   return (
     <section>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 dark:bg-gray-800">
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
           <div className="max-w-3xl mx-auto lg:max-w-none">
 
             <article>
 
               {/* Article header */}
-              <header className="max-w-3xl mx-auto mb-20">
+              <header className="max-w-3xl mx-auto mb-20 dark:text-white">
                 {/* Title */}
                 <h1 className="h1 text-center mb-4 text-6xl">{title}</h1>
               </header>
@@ -61,7 +61,7 @@ function PostSingle({
                 <hr className="my-10 border border-dashed lg:block"/>
                 <aside className="relative lg:block lg:w-60 lg:ml-20 flex-shrink-0">
                   <div>
-                    <h4 className="text-lg font-bold leading-snug tracking-tight mb-4">Backlinks</h4>
+                    <h4 className="text-lg font-bold leading-snug tracking-tight mb-4 dark:text-white">Backlinks</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
                       {
                         (Object.keys(backlinks).length > 0) && (

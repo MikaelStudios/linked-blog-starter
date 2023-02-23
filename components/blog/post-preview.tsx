@@ -25,7 +25,7 @@ const PostPreview = ({
             <Link as={`/${slug}`} href="/[...slug]" className="hover:underline">{title}</Link>
           </h2>
         </header>
-        <div className="text-lg text-gray-600 mb-4 text-ellipsis">
+        <div className="text-lg text-gray-600 mb-4 text-ellipsis dark:text-gray-400">
           {excerpt.slice(0, 500)}
         </div>
         <footer className="text-sm">

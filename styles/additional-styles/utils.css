@@ -23,7 +23,11 @@
   color: #0969da;
   background-color: rgb(243 250 251) !important;
 }
-
+@media (prefers-color-scheme: dark) {
+  .internal-link {
+    background-color: rgb(32, 67, 72) !important;
+  }
+}
 /* Typography */
 .h1 {
   font-size: 2.25rem;
