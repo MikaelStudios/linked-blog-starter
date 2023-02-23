@@ -1,49 +1,66 @@
 .internal-link-container > .note-preview {
-  @apply hidden absolute w-[350px] left-0 z-50;
+  display: none; 
+  position: absolute; 
+  left: 0; 
+  z-index: 50; 
+  width: 350px;
   text-align: left !important;
   line-height: normal !important;
   letter-spacing: normal !important;
 }
 
 .internal-link-container > .internal-link:hover + .note-preview {
-  @apply block;
+  display: block;
 }
 .internal-link-container {
-  @apply relative;
+  position: relative;
 }
 .internal-link:hover {
-  @apply underline;
+  text-decoration: underline;
 }
 .internal-link {
-  @apply rounded;
+  border-radius: 0.25rem;
   color: #0969da;
   background-color: rgb(243 250 251) !important;
 }
 
 /* Typography */
 .h1 {
-    @apply text-4xl font-extrabold leading-tight tracking-tighter;
+  font-size: 2.25rem;
+  line-height: 2.5rem; 
+  font-weight: 800; 
+  line-height: 1.25; 
 }
 
 .h2 {
-    @apply text-3xl font-extrabold leading-tight tracking-tighter;
+  font-size: 1.875rem;
+  line-height: 2.25rem; 
+  font-weight: 800; 
+  line-height: 1.25; 
 }
 
 .h3 {
-    @apply text-3xl font-bold leading-tight;
+  font-size: 1.875rem;
+  line-height: 2.25rem; 
+  font-weight: 700;
 }
 
 .h4 {
-    @apply text-2xl font-bold leading-snug tracking-tight;
+  font-size: 1.5rem;
+  line-height: 2rem; 
+  font-weight: 700; 
+  line-height: 1.375;  
 }
 
 @screen md {
     .h1 {
-        @apply text-5xl;
+      font-size: 3rem;
+      line-height: 1;
     }
 
     .h2 {
-        @apply text-4xl;
+      font-size: 2.25rem;
+      line-height: 2.5rem;
     }
 }
 
@@ -51,15 +68,32 @@
 /* Buttons */
 .btn,
 .btn-sm {
-    @apply font-medium inline-flex items-center justify-center border border-transparent rounded leading-snug transition duration-150 ease-in-out;
+  display: inline-flex; 
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform; 
+  transition-duration: 150ms; 
+  font-weight: 500; 
+  line-height: 1.375; 
+  justify-content: center; 
+  align-items: center; 
+  border-radius: 0.25rem; 
+  border-width: 1px; 
+  border-color: transparent;
 }
 
 .btn {
-    @apply px-8 py-3 shadow-lg;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem; 
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
 }
 
 .btn-sm {
-    @apply px-4 py-2 shadow;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem; 
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
 }
 
 /* Hamburger button */

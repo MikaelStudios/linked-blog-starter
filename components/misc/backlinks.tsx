@@ -17,7 +17,7 @@ const Backlinks = ({ backlinks }: Props) => {
         const post = backlinks[slug]
         return (
           <Link as={slug} href="[...slug]" className="col-span-1">
-            <NotePreview title={post.title} content={post.excerpt} />
+            <NotePreview title={post.title} content={post.excerpt} key={slug} />
           </Link>
         )
       })}
