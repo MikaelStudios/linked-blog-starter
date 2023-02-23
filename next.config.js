@@ -1,3 +1,5 @@
+const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
+
 module.exports = {
   async redirects() {
     return [
@@ -7,5 +9,9 @@ module.exports = {
         permanent: true,
       },
     ]
+  },
+  webpack(config) {
+    config.plugins.push(new WindiCSSWebpackPlugin())
+    return config
   },
 }
