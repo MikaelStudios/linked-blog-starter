@@ -691,12 +691,12 @@
 }
 
 .markdown-body table tr {
-  background-color: #ffffff;
+  background-color: #1f2937;
   border-top: 1px solid hsla(210,18%,87%,1);
 }
 
 .markdown-body table tr:nth-child(2n) {
-  background-color: #f6f8fa;
+  background-color: #2a333f;
 }
 
 .markdown-body table img {
